@@ -16,7 +16,8 @@ jobs:
       - name: Copy files to EC2
         uses: appleboy/scp-action@v0.1.7
         with:
+          key: ${{ secrets.EC2_KEY }}
+          SOURCE: "./"
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
-          key: ${{ secrets.EC2_KEY }}
-          source: "."
+          TARGET: "/home/ubuntu/dht-service"
