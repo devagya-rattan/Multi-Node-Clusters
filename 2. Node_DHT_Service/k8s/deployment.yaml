@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodeapp-deployment
-  labels:
-    app: nodeapp
+  name: node-k8s-demo
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
-      app: nodeapp
+      app: node-k8s-demo
+  strategy: {}
   template:
     metadata:
+      creationTimestamp: null
       labels:
-        app: nodeapp
+        app: node-k8s-demo
     spec:
       containers:
-      - name: nodeserver
-        image: 1shubham7/node-app:latest
-        ports:
-        - containerPort: 3000
+        - name: node-k8s-demo
+          image: devagyarattan/dht-service:v1
+          ports:
+            - containerPort: 3000
