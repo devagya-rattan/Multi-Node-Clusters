@@ -2,9 +2,9 @@ const express = require("express");
 const awsIot = require('aws-iot-device-sdk');
 let response;
 const device = awsIot.device({
-    keyPath: "/home/devagya/Downloads/19cf292c88fe52bc4fe760137ac965fb176afae66737fe77dab2d7353df276ae-private.pem.txt",
-    certPath: "/home/devagya/Downloads/19cf292c88fe52bc4fe760137ac965fb176afae66737fe77dab2d7353df276ae-certificate.pem.txt",
-    caPath: "/home/devagya/Downloads/0.txt",
+    keyPath: "app/private.pem.txt",
+    certPath: "app/certificate.pem.txt",
+    caPath: "app/AmazonRootCA1.txt",
     clientId: "DHT-Service",
     host: "at5bqbmqwo924-ats.iot.ap-south-1.amazonaws.com",
     reconnectPeriod: 1000,
@@ -27,7 +27,7 @@ device.on('error', (err) => {
 });
 
 const app = express();
-const port = 8000;
+const port = 3000;
 
 app.get('/', (req, res) => {
     res.json(response)

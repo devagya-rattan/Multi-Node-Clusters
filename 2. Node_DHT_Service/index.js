@@ -10,6 +10,7 @@ const device = awsIot.device({
     reconnectPeriod: 1000,
     keepalive: 60
 });
+// add yaml
 device.on('connect', () => {
     console.log('Connected to AWS IoT');
     device.subscribe('esp32/temp');
